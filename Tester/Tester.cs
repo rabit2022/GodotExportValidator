@@ -1,8 +1,3 @@
-// Provided as part of GetNodeAutoProp under MIT license, (c) 2024 Dominik Kaszewski
-
-// using GodotExportValidatorGenerator;
-
-// using Godot;
 
 using System;
 using GodotExportValidator.SourceGenerator;

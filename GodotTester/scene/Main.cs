@@ -3,8 +3,9 @@ using GodotExportValidator;
 
 public partial class Main : Node
 {
-	[Validate]
-	private string test = "";
+	[Export] [Validate] private string test;
+
+	[Export] [Validate] public Node test2;
 
 	public override void _Notification(int what)
 	{

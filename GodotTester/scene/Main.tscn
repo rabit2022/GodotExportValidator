@@ -2,5 +2,6 @@
 
 [ext_resource type="Script" uid="uid://3ry7ad6kfen5" path="res://scene/Main.cs" id="1_nbc6x"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" node_paths=PackedStringArray("test2")]
 script = ExtResource("1_nbc6x")
+test2 = NodePath(".")
