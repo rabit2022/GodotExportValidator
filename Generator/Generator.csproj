@@ -1,0 +1,36 @@
+<!-- Provided as part of GetNodeAutoProp under MIT license, (c) 2024 Dominik Kaszewski -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+    <!-- 这里改 DLL 文件名（不含扩展名） -->
+    <AssemblyName>GodotExportValidator.SourceGenerator</AssemblyName>
+
+    <!-- 禁止把 dll 自动扔进 lib，我们自己写 -->
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.10.0" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4" PrivateAssets="all" />
+  </ItemGroup>
+
+  <!-- 关键：同一文件复制到两条路径 -->
+  <ItemGroup>
+    <!-- 1. 给下游项目引用（特性可见） -->
+    <None Include="$(OutputPath)$(AssemblyName).dll"
+          Pack="true"
+          PackagePath="lib\netstandard2.0\" />
+
+    <!-- 2. 给 Roslyn 当 analyzer -->
+    <None Include="$(OutputPath)$(AssemblyName).dll"
+          Pack="true"
+          PackagePath="analyzers\dotnet\cs\" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="bin\" />
+    <Folder Include="obj\" />
+  </ItemGroup>
+</Project>
+
