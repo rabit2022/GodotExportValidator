@@ -6,33 +6,11 @@ Godot 验证export的资源是否手动挂载，并提供提示信息。
 
 ## 下载
 
-[release](https://github.com/rabit2022/GodotExportValidator/releases) 下载nuget包
-
-## 使用
-
-1. 添加本地 NuGet 源 (文件夹)
-
 ```bash
-dotnet nuget add source "H:\project\godot\GodotLocalPackages" --name GodotLocalPackages
+dotnet add package GodotExportValidator
 ```
-
-把下载的nuget包放到本地nuget源文件夹下
-
-2. godot项目配置
- 
-```xml
-
-<ItemGroup>
-    <PackageReference Include="GodotExportValidator.SourceGenerator" Version="1.0.0" />
-</ItemGroup>
-
-```
-3. 重新编译项目
-
-rider内编译可能会出现错误，请在godot编辑器内编译
 
 ## 示例
-
 
 ```gdscript
 [Export] [Validate] private string test;
@@ -51,7 +29,6 @@ public override void _Notification(int what)
 
 ![intro.png](./.img/intro.png)
 
-
 生成代码:
 
 ```csharp
@@ -67,6 +44,7 @@ ValidateUtilities.ValidateCheckNullValue(this, "test2", test2);
 }
 
 ```
+
 ## 原理
 
 * 源生成器生成OnValidate方法，在节点树进入树时调用，遍历所有导出属性，检查是否手动挂载，并提供提示信息。

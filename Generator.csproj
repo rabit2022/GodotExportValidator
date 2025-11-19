@@ -9,7 +9,26 @@
     <!-- 禁止把 dll 自动扔进 lib，我们自己写 -->
     <IncludeBuildOutput>false</IncludeBuildOutput>
 
+    <!-- 以下四行必填 -->
+    <PackageId>GodotExportValidator</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>穹的兔兔</Authors>
+    <Description>Godot 验证export的资源是否手动挂载，并提供提示信息。</Description>
+
+    <!-- 关键：指定许可证与说明文件 -->
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+
+    <!-- 必填：仓库地址 -->
+    <RepositoryUrl>https://github.com/rabit2022/GodotExportValidator/</RepositoryUrl>
+
+    <!-- 可选：指定分支 / 子目录 -->
+    <RepositoryBranch>master</RepositoryBranch>
+    <RepositoryType>git</RepositoryType> 
+    
   </PropertyGroup>
+  
+  
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.10.0" PrivateAssets="all" />
     <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4" PrivateAssets="all" />
@@ -28,6 +47,12 @@
           Pack="true"
           PackagePath="analyzers\dotnet\cs\" />
   </ItemGroup>
-  
+
+
+  <ItemGroup>
+    <!-- 必须写 Pack + PackagePath -->
+    <None Include="LICENSE" Pack="true" PackagePath="" />
+    <None Include="README.md" Pack="true" PackagePath="" />
+  </ItemGroup>
 </Project>
 
