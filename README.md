@@ -6,13 +6,15 @@ Godot 验证export的资源是否手动挂载，并提供提示信息。
 
 ## 下载
 
-[release]() 下载nuget包
+[release](https://github.com/rabit2022/GodotExportValidator/releases) 下载nuget包
 
 ## 使用
 
 1. 添加本地 NuGet 源 (文件夹)
 
+```bash
 dotnet nuget add source "H:\project\godot\GodotLocalPackages" --name GodotLocalPackages
+```
 
 把下载的nuget包放到本地nuget源文件夹下
 
@@ -68,8 +70,7 @@ ValidateUtilities.ValidateCheckNullValue(this, "test2", test2);
 ## 原理
 
 * 源生成器生成OnValidate方法，在节点树进入树时调用，遍历所有导出属性，检查是否手动挂载，并提供提示信息。
-* ValidateUtilities属于运行时代码，由Godot 编译的dll提供。
-* nuget 打包项目包含Analyzer和lib文件夹，其中Analyzer属于源生成器，lib文件夹包含运行时代码。
-* using导入的是 godot 编译的dll,暂时没有兼容性问题,项目打包后可以正常运行。
+* nuget 打包项目包含Analyzer和lib文件夹，其中Analyzer属于源生成器，lib文件夹包含运行时代码.
+* using导入的ValidateUtilities是 godot 编译的dll,暂时没有兼容性问题,项目打包后可以正常运行。
 
 
