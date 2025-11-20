@@ -1,10 +1,12 @@
 
 using System;
-using GodotExportValidator.SourceGenerator;
+using Godot;
+using GodotExportValidator;
 
-Console.WriteLine("Hello World!");
+// Console.WriteLine("Hello World!");
+Console.WriteLine(new BouncingEnemy().Validate());
 
-class Node2D
+class Node2D :Node
 {
     public T GetNode<T>(string path) => default(T)!;
 }
@@ -13,7 +15,7 @@ class Node2D
 
 class AnimatedSprite2D {}
 
-class RayCast2D {}
+class RayCast2D :Node {}
 
 partial class BouncingEnemy : Node2D
 {
@@ -33,6 +35,11 @@ partial class BouncingEnemy : Node2D
     [Validate]
     private RayCast2D[] _rayCasts2;
 
+    public bool Validate()
+    {
+        OnValidate();
+        return true;
+    }
 }
 
 

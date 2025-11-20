@@ -1,36 +1,44 @@
-<!-- Provided as part of GetNodeAutoProp under MIT license, (c) 2024 Dominik Kaszewski -->
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
-    <!-- 这里改 DLL 文件名（不含扩展名） -->
-    <AssemblyName>GodotExportValidator.SourceGenerator</AssemblyName>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
 
-    <!-- 禁止把 dll 自动扔进 lib，我们自己写 -->
-    <IncludeBuildOutput>false</IncludeBuildOutput>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
 
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.10.0" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4" PrivateAssets="all" />
-  </ItemGroup>
+        <LangVersion>latest</LangVersion>
+        <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
 
-  <!-- 关键：同一文件复制到两条路径 -->
-  <ItemGroup>
-    <!-- 1. 给下游项目引用（特性可见） -->
-    <None Include="$(OutputPath)$(AssemblyName).dll"
-          Pack="true"
-          PackagePath="lib\netstandard2.0\" />
+        <!--    &lt;!&ndash; 这里改 DLL 文件名（不含扩展名） &ndash;&gt;-->
+        <!--    <AssemblyName>GodotExportValidator.SourceGenerator</AssemblyName>-->
 
-    <!-- 2. 给 Roslyn 当 analyzer -->
-    <None Include="$(OutputPath)$(AssemblyName).dll"
-          Pack="true"
-          PackagePath="analyzers\dotnet\cs\" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <Folder Include="bin\" />
-    <Folder Include="obj\" />
-  </ItemGroup>
+        <!--    &lt;!&ndash; 禁止把 dll 自动扔进 lib，我们自己写 &ndash;&gt;-->
+        <!--    <IncludeBuildOutput>false</IncludeBuildOutput>-->
+        <!--&lt;!&ndash;    没标时，下游项目会把你的生成器当普通依赖传递&ndash;&gt;-->
+        <!--    <DevelopmentDependency>true</DevelopmentDependency>-->
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.12.0-beta1.25218.8">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="5.0.0"/>
+    </ItemGroup>
+
+    <!--  &lt;!&ndash; 关键：同一文件复制到两条路径 &ndash;&gt;-->
+    <!--  <ItemGroup>-->
+    <!--    &lt;!&ndash; 1. 给下游项目引用（特性可见） &ndash;&gt;-->
+    <!--    <None Include="$(OutputPath)$(AssemblyName).dll"-->
+    <!--          Pack="true"-->
+    <!--          PackagePath="lib\netstandard2.0\" />-->
+
+    <!--    &lt;!&ndash; 2. 给 Roslyn 当 analyzer &ndash;&gt;-->
+    <!--    <None Include="$(OutputPath)$(AssemblyName).dll"-->
+    <!--          Pack="true"-->
+    <!--          PackagePath="analyzers\dotnet\cs\" />-->
+    <!--  </ItemGroup>-->
+
+    <!--  <ItemGroup>-->
+    <!--    <Folder Include="obj\" />-->
+    <!--  </ItemGroup>-->
 </Project>
 

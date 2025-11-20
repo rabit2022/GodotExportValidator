@@ -8,8 +8,9 @@
     <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
 
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="GodotExportValidator.SourceGenerator" Version="1.0.0" />
+    <PackageReference Include="GodotExportValidator" Version="1.0.0" />
   </ItemGroup>
+
+
 </Project>

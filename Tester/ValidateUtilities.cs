@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using Godot;
 
-namespace GodotExportValidatorGenerator;
+namespace GodotExportValidator;
 
 public static class ValidateUtilities
 {
