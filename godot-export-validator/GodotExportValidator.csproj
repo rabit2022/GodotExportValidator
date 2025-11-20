@@ -11,4 +11,7 @@
     <ItemGroup>
       <Folder Include="addons\Generator\" />
     </ItemGroup>
+    <ItemGroup>
+      <Content Include="scripts\Attributes\ValidateAttribute.cs.uid" />
+    </ItemGroup>
 </Project>
