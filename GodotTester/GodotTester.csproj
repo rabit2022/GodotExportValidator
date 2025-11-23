@@ -1,0 +1,16 @@
+<Project Sdk="Godot.NET.Sdk/4.5.1">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net9.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+
+    <!--    查看 源生成器 生成的代码-->
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="GodotExportValidator" Version="1.0.0" />
+  </ItemGroup>
+
+
+</Project>
