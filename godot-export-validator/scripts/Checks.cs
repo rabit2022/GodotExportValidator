@@ -4,7 +4,7 @@ using Godot;
 
 namespace GodotExportValidator;
 
-public static class Checks
+internal static class Checks
 {
     private static Action<string> Print = GD.PrintRich;
     private static string _validate = ColorSettings.Validate;

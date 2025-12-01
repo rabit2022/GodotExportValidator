@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BuildingResource" load_steps=2 format=3 uid="uid://cs4dxt3ipjr0o"]
+
+[ext_resource type="Script" uid="uid://dh1o8xn1afecq" path="res://resources/building/BuildingResource.cs" id="1_r6ysn"]
+
+[resource]
+script = ExtResource("1_r6ysn")
+DisplayName = "Village"
+ResourceCost = 2
+ResourceRadius = 3

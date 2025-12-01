@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://wyjrc3l1hpod"]
+
+[ext_resource type="Script" uid="uid://dqpy884x8w6ja" path="res://scene/TestResourceValidator.cs" id="1_8mii4"]
+
+[node name="TestResourceValidator" type="Node2D"]
+script = ExtResource("1_8mii4")

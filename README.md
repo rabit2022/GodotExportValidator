@@ -12,6 +12,8 @@ dotnet add package GodotExportValidator
 
 ## 示例
 
+### 节点验证
+
 ```gdscript
 [Export] [Validate] private string test;
 
@@ -44,6 +46,37 @@ ValidateUtilities.ValidateCheckNullValue(this, "test2", test2);
 }
 
 ```
+
+### resource的验证
+
+```csharp
+
+[GlobalClass] // 编辑器中创建资源
+public partial class BuildingResource : Resource
+{
+    ...
+    /// <summary>
+    /// 这里必须创建public函数Validate，OnValidate()函数 代码生成，无法被检测到
+    /// </summary>
+    public void Validate()
+    {
+        OnValidate();
+    }
+}
+```
+
+```csharp
+internal partial class TestResourceValidator:Node
+{
+    public override void _Ready()
+    {
+        ResourceValidator.ValidateAllResourcesInFolder("res://resources/building/");
+    }
+}
+
+```
+
+![Snipaste_2025-12-01_23-21-21.png](.img/Snipaste_2025-12-01_23-21-21.png)
 
 ## 原理
 

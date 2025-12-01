@@ -2,7 +2,7 @@
 
 namespace GodotExportValidator;
 
-public static class ColorSettings
+internal static class ColorSettings
 {
     
     private static string WarniningColor = "[color=#FFAA55]";
