@@ -4,6 +4,8 @@
 
 Godot 验证export的资源是否手动挂载，并提供提示信息。
 
+[项目地址](https://github.com/rabit2022/GodotExportValidator)
+
 ## 下载
 
 ```bash
